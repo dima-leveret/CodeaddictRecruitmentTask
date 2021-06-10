@@ -1,0 +1,66 @@
+.Landing-Page {
+    width: 100%;
+    max-width: 1440px;
+}
+
+.Background {
+    max-width: 1440px;
+    width: 100%;
+    height: 780px;
+    background-color: #d6ebe4;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 39px;
+}
+
+.header-container {
+    width: 100%;
+    max-width: 1240px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Teamify {
+    width: 91px;
+    height: 24px;
+    /* margin: 2px 608px 32px 0; */
+    object-fit: contain;
+    /* background-color: #213053; */
+}
+
+.nav {
+    max-width: 541px;
+    width: 100%;
+}
+
+.nav > ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.nav > ul > li {
+    height: 30px;
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 1.76;
+    text-align: right;
+    color: #262729;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    cursor: pointer;
+}
+
+header > hr {
+    max-width: 1240px;
+    width: 100%;
+    height: 1px;
+    margin: 28px 0 0;
+    transform: rotate(0deg);
+    opacity: 0.15;
+    border: solid 1px #1d263a;
+}
