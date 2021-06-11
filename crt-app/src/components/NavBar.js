@@ -35,7 +35,10 @@ class NavBar extends React.Component {
         return (
                 <header>
                     <div className="header-container">
-                        <img className="teamify-img" src={TeamifyLogo} alt="Teamify-logo"/>
+                        <img 
+                        className="teamify-img" 
+                        src={TeamifyLogo} 
+                        alt="Teamify-logo"/>
                         <nav className="nav">
                             <ul>
                                 <li>Freelancers</li>

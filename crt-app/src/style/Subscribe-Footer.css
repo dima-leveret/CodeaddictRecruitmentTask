@@ -1,0 +1,8 @@
+.subscribe-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1440px;
+    width: 100%;
+    background-color: #d6ebe4;
+}
