@@ -1,20 +1,12 @@
-.Landing-Page {
-    width: 100%;
-    max-width: 1440px;
-}
-
-.Background {
-    max-width: 1440px;
-    width: 100%;
-    height: 780px;
-    background-color: #d6ebe4;
-}
 
 header {
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding-top: 39px;
+    max-width: 1440px;
+    width: 100%;
+    background-color: #d6ebe4;
+    padding: 39px 10px 0;
 }
 
 .header-container {
@@ -25,12 +17,10 @@ header {
     align-items: center;
 }
 
-.Teamify {
+.teamify-img {
     width: 91px;
     height: 24px;
-    /* margin: 2px 608px 32px 0; */
     object-fit: contain;
-    /* background-color: #213053; */
 }
 
 .nav {
@@ -63,4 +53,72 @@ header > hr {
     transform: rotate(0deg);
     opacity: 0.15;
     border: solid 1px #1d263a;
+}
+
+.burger-menu {
+    display: none;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .nav {
+        display: none;
+    }
+
+    .burger-menu {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .closed-burger-nav {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        align-items: center;
+        margin-top: 93px;
+        background-color: #d6ebe4;
+        transform: translateX(100%);
+        transition: ease-in-out 0.4s;
+    }
+
+    .opened-burger-nav {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        align-items: center;
+        margin-top: 93px;
+        background-color: #d6ebe4;
+        transform: translateX(0);
+        transition: ease-in-out 0.4s;
+    }
+    
+    .burger-menu > nav > ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        list-style: none;
+    }
+
+    .burger-menu > nav > ul > li {
+        font-size: 17px;
+        font-weight: bold;
+        line-height: 1.76;
+        color: #262729;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin: 40px 0 0;
+    }
+    
+    .burger {
+        filter: invert();
+    }
 }
