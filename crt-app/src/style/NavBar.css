@@ -7,6 +7,8 @@ header {
     width: 100%;
     background-color: #d6ebe4;
     padding: 39px 10px 0;
+    position: fixed;
+    z-index: 1000;
 }
 
 .header-container {
@@ -78,7 +80,7 @@ header > hr {
         flex-direction: column;
         top: 0;
         left: 0;
-        z-index: 100;
+        z-index: 1000;
         align-items: center;
         margin-top: 93px;
         background-color: #d6ebe4;
@@ -94,7 +96,7 @@ header > hr {
         flex-direction: column;
         top: 0;
         left: 0;
-        z-index: 100;
+        z-index: 1000;
         align-items: center;
         margin-top: 93px;
         background-color: #d6ebe4;
