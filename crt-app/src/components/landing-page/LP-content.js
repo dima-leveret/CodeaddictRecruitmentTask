@@ -2,7 +2,10 @@ import React from 'react';
 
 import '../../style/landing-page/LP-content.css';
 
-import aboutUsImage from '../../img/about-us-image.png'
+import aboutUsImage from '../../img/about-us-image.png';
+import amazonImage from '../../img/image-amazon.png';
+import airbnbImage from '../../img/image-airbnb.png';
+import googleImage from '../../img/image-google.png';
 
 function LandingPageContect() {
     return (
@@ -36,7 +39,13 @@ function LandingPageContect() {
 
                 <div className='clients' >
                     <div className='clients-images'>
-
+                        <div className='amazone-image-container' >
+                            <img src={amazonImage} alt='amazoneImage' className='amazone-image' />
+                        </div>
+                        <div className='airbnb-and-goole-images' >
+                            <img src={airbnbImage} alt='airbnbImage' className='airbnb-image' />
+                            <img src={googleImage} alt='googleImage' className='google-image' />
+                        </div>
                     </div>
                     <div className='clients-text'>
                         <p className='clients-text-2' >O2. Clients</p>
