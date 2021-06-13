@@ -1,6 +1,8 @@
 import React from 'react';
 
-import '../../style/landing-page/LP-up.css'
+import '../../style/landing-page/LP-up.css';
+import stripedCircle from '../../img/header-striped-circle.svg';
+import darkDircle from '../../img/dark-circle.svg';
 
 class LendingPageUp extends React.Component {
 
@@ -23,7 +25,10 @@ class LendingPageUp extends React.Component {
                         >Explore Now</label>
                     </form>
                 </div>
-                <div className='circle' />
+                <div  className='circles'>
+                    <img src={stripedCircle} alt='striped-circle' className='striped-circle' />
+                    <img  src={darkDircle}  alt='dark-dircle' className='dark-circle' />
+                </div>
             </div>
         )
     }

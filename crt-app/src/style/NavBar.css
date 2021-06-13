@@ -82,7 +82,7 @@ header > hr {
         left: 0;
         z-index: 1000;
         align-items: center;
-        margin-top: 93px;
+        margin-top: 99px;
         background-color: #d6ebe4;
         transform: translateX(100%);
         transition: ease-in-out 0.4s;
@@ -98,7 +98,7 @@ header > hr {
         left: 0;
         z-index: 1000;
         align-items: center;
-        margin-top: 93px;
+        margin-top: 99px;
         background-color: #d6ebe4;
         transform: translateX(0);
         transition: ease-in-out 0.4s;
@@ -122,5 +122,6 @@ header > hr {
     
     .burger {
         filter: invert();
+        height: 30px;
     }
 }

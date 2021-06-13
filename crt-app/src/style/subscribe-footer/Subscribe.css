@@ -58,3 +58,18 @@
     line-height: 1.76;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 600px) {
+    .subscribe-input-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        padding: 10px;
+    }
+
+    .subscribe-input-container > input  {
+        text-align: center;
+        line-height: 3;
+    }
+}
