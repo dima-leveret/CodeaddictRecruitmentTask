@@ -3,9 +3,9 @@ import React from 'react';
 import '../../style/landing-page/LP-content.css';
 
 import aboutUsImage from '../../img/about-us-image.png';
-import amazonImage from '../../img/image-amazon.png';
-import airbnbImage from '../../img/image-airbnb.png';
-import googleImage from '../../img/image-google.png';
+import amazonImage from '../../img/amazon.png';
+import airbnbImage from '../../img/airbnb.png';
+import googleImage from '../../img/google.png';
 
 function LandingPageContect() {
     return (
