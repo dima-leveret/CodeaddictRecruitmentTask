@@ -53,6 +53,58 @@ function LandingPageContect() {
                         <p className='clients-text-short-description' >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas aliquet orci, sit sagittis sed vel dictum lacus purus.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas aliquet orci, sit sagittis sed vel dictum lacus purus. </p>
                     </div>
                 </div>
+
+                <div className='reviews' >
+                    <div className='reviews-text' >
+                        <div>
+                            <p className='reviews-text-1' >O3. Reviews</p>
+                            <h3>What they say about us.</h3>
+                        </div>
+                        <p className='reviews-text-2' >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas aliquet orci, sit sagittis sed vel dictum lacus purus.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                    </div>
+
+                    <div className='reviews-cards'>
+                        <div className='review-card' >
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas aliquet orci, sit sagittis sed vel dictum lacus purus.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                            <div className='avatar-name-position' >
+                                <div className='avatar-container' >
+                                    <div className='avatar' ></div>
+                                </div>
+                                <div className='name-position' >
+                                    <p className='name' >James Moor</p>
+                                    <p className='position' >CEO @ TheCompany</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='review-card' >
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas aliquet orci, sit sagittis sed vel dictum lacus purus.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                            <div className='avatar-name-position' >
+                                <div className='avatar-container' >
+                                    <div className='avatar' ></div>
+                                </div>
+                                <div className='name-position' >
+                                    <p className='name' >James Moor</p>
+                                    <p className='position' >CEO @ TheCompany</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='review-card' >
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas aliquet orci, sit sagittis sed vel dictum lacus purus.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+                            <div className='avatar-name-position' >
+                                <div className='avatar-container' >
+                                    <div className='avatar' ></div>
+                                </div>
+                                <div className='name-position' >
+                                    <p className='name' >James Moor</p>
+                                    <p className='position' >CEO @ TheCompany</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
                 
             </div>
         </div>
