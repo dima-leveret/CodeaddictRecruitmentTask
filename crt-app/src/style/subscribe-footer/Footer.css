@@ -1,0 +1,47 @@
+footer {
+    display: flex;
+    justify-content: center;
+    max-width: 1440px;
+    width: 100%;
+    padding: 101px 10px 59px ;
+    flex-wrap: wrap;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1240px;
+    width: 100%;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.teamify-cr {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1.43;
+    color: #262729;
+}
+
+.copyrights {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 17px;
+    line-height: 1.76;
+    color: #7f828a;
+}
+
+.twitter-logo {
+    width: 18px;
+    height: 14px;
+    margin-top: 6px;
+}
+
+@media only screen and (max-width: 500px) {
+    .footer-container {
+        flex-direction: column;
+    }
+    .copyrights {
+        margin: 20px 0;
+    }
+}
