@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 import '../style/NavBar.css';
 
@@ -35,17 +36,23 @@ class NavBar extends React.Component {
         return (
                 <header>
                     <div className="header-container">
-                        <img 
-                        className="teamify-img" 
-                        src={TeamifyLogo} 
-                        alt="Teamify-logo"/>
+                        <Link to='/' >
+                            <img 
+                                className="teamify-img" 
+                                src={TeamifyLogo} 
+                                alt="Teamify-logo"
+                            />
+                        </Link>
+
                         <nav className="nav">
                             <ul>
-                                <li>Freelancers</li>
-                                <li>About Us</li>
-                                <li>Case-Study</li>
-                                <li>Reviews</li>
-                                <li>Newsletter</li>
+                                <Link to='/listOfUsers' style={{ textDecoration: 'none' }} >
+                                    <li className='nav-link' >Freelancers</li>
+                                </Link>
+                                <li className='nav-link' >About Us</li>
+                                <li className='nav-link' >Case-Study</li>
+                                <li className='nav-link' >Reviews</li>
+                                <li className='nav-link' >Newsletter</li>
                             </ul>
                         </nav>
 
@@ -59,11 +66,13 @@ class NavBar extends React.Component {
 
                             <nav className={this.state.bugregMenuClass}>
                                 <ul>
-                                    <li>Freelancers</li>
-                                    <li>About Us</li>
-                                    <li>Case-Study</li>
-                                    <li>Reviews</li>
-                                    <li>Newsletter</li>
+                                    <Link to='/listOfUsers' style={{ textDecoration: 'none' }} >
+                                        <li className='nav-link' >Freelancers</li>
+                                    </Link>
+                                    <li className='nav-link' >About Us</li>
+                                    <li className='nav-link' >Case-Study</li>
+                                    <li className='nav-link' >Reviews</li>
+                                    <li className='nav-link' >Newsletter</li>
                                 </ul>
                             </nav>
                         </div>
