@@ -1,0 +1,24 @@
+.users {
+    max-width: 1240px;
+    width: 100%;
+    height: auto;
+    margin-bottom: 70px;
+}
+
+.users-list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 288px 288px 288px 288px;
+    grid-template-rows: auto;
+    grid-gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 71px;
+    
+}
+
+.showing-number {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 17px;
+    line-height: 1.76;
+    color: #7f828a;
+}
