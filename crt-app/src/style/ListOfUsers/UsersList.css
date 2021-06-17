@@ -7,20 +7,17 @@
 
 .users-list {
     width: 100%;
-    height: 1071px;
-    display: grid;
-    grid-template-columns: 288px 288px 288px 288px;
-    grid-template-rows: auto;
-    grid-gap: 30px;
+    display: flex;
+    justify-content: space-around;
     flex-wrap: wrap;
-    margin-bottom: 71px;
-    
+    margin-bottom: 41px;
 }
 
 .showing {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .showing-number {
@@ -49,10 +46,24 @@
     cursor: pointer;
 }
 
-.btn-left {
+.btn-disabled {
     background-color: #ffffff;
 }
 
-.btn-right {
+.btn-active {
     background-color: #ff794d;
+}
+
+.active-left-arrow, .disabled-right-arrow {
+    transform: rotate(180deg);
+}
+
+@media only screen and (max-width: 1250px) {
+    .showing-buttons {
+        margin-right: 10px;
+    }
+
+    .showing-number {
+        margin-left: 10px;
+    }
 }

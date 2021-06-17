@@ -2,13 +2,13 @@ import React from "react";
 
 import '../../style/ListOfUsers/ListOfUsersAndSearch.css'
 
-import SearchUsers from "./SearchUser";
+import SearchUser from "./SearchUser";
 import UsersList from "./UsersList";
 
 function ListOfUsersAndSearch () {
     return(
         <div className='list-of-users-and-search' >
-            <SearchUsers/>
+            <SearchUser/>
             <UsersList/>
         </div>
     )

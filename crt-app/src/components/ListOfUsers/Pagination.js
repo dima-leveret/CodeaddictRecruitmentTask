@@ -12,7 +12,7 @@ function Pagination({ usersPerPage, totalUsers, paginate }) {
 
     return(
         <div>
-            <ul>
+            <ul style={{ display: 'flex', listStyle: 'none' }} >
                 {
                     pageNumber.map(number => (
                         <li key={number} onClick={() => paginate(number)} >

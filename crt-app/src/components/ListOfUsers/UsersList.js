@@ -1,12 +1,12 @@
 import React from "react";
 
 import UserCard from './UserCard';
-import Pagination from './Pagination'
+// import Pagination from './Pagination'
 
 import '../../style/ListOfUsers/UsersList.css'
 
-import arrowLeft from '../../img/arrow-left.svg'
-import arrowRight from '../../img/arrow-right.svg'
+import disabledArrow from '../../img/disabled-arrow.svg'
+import activeArrow from '../../img/active-arrow.svg'
 
 import { connect } from 'react-redux';
 import { fetchUsers } from '../../state/users';
@@ -16,29 +16,66 @@ class UsersList extends React.Component {
     state = {
         currentPage: 1,
         usersPerPage: 12,
+        pageNumber: [],
+
+        showedUsersNumber: 12,
+        currentUsers: [],
+        pages: 0,
+        firstUserIndex: 0,
+        lastUserIndex: 0,
     }
 
     componentDidMount(){
         this.props.fetchUsers();
     }
 
+
+    nextPage = (num) => {
+        this.setState({
+            currentPage: this.state.currentPage + 1,
+            showedUsersNumber: this.state.showedUsersNumber + num,
+        })
+    }
+
+    prevPage = (num) => {
+        this.setState({
+            currentPage: this.state.currentPage - 1,
+            showedUsersNumber: this.state.showedUsersNumber - num,
+        })
+    }
+
+
     render() {
 
         const lastUserIndex = this.state.currentPage * this.state.usersPerPage;
         const firstUserIndex = lastUserIndex - this.state.usersPerPage;
         const currentUsers = this.props.users.slice(firstUserIndex, lastUserIndex);
+        const pages = Math.ceil(this.props.users.length / this.state.usersPerPage);
 
-        const paginate = pageNamber => {
-            this.setState({
-                currentPage: pageNamber,
-            })
-        }
+        
+
+        for (let i = 1; i <= pages; i++) {
+            this.state.pageNumber.push(i)
+        };
+
+        console.log(currentUsers.length);
+
+        // function to show appropriate users on the page
+        // const paginate = pageNamber => {
+        //     this.setState({
+        //         currentPage: pageNamber,
+        //     })
+        // };
+
 
         return(
             <div className='users' >
                 <div className='users-list' >
                     {
                         currentUsers
+                        .filter(user => 
+                            user.login.replaceAll('[^A-Za-z0-9]', '').toLowerCase().includes(this.props.searchInput.toLowerCase())
+                        )
                         .map(user => (
                             <UserCard
                             key={user.id}
@@ -50,21 +87,38 @@ class UsersList extends React.Component {
                     }
                 </div>
                 <div className='showing' >
-                    <p className='showing-number' >Showing: {this.props.users.length} </p>
+                    <p className='showing-number' >Showing: {this.state.showedUsersNumber}/{this.props.users.length} </p>
                     <div className='showing-buttons' >
-                        <button className='btn btn-left' >
-                            <img src={arrowLeft} alt='arrowLeft' />
-                        </button>
-                        <button className='btn btn-right' >  
-                            <img src={arrowRight} alt='arrowRight' />  
-                        </button>
+                        {
+                            this.state.currentPage === 1
+                            ?
+                            <button className='btn btn-disabled' disabled>
+                                <img src={disabledArrow} alt='arrowLeft' />
+                            </button>
+                            :
+                            <button className='btn btn-active' onClick={() => this.prevPage(currentUsers.length)} >
+                                <img className='active-left-arrow' src={activeArrow} alt='arrowLeft' />
+                            </button>
+                        }
+
+                        {
+                            currentUsers.includes(this.props.users[this.props.users.length - 1])
+                            ?
+                            <button className='btn btn-disabled' disabled>  
+                                <img className='disabled-right-arrow' src={disabledArrow} alt='arrowRight' />  
+                            </button>
+                            :
+                            <button className='btn btn-active' onClick={() => this.nextPage(currentUsers.length)} >  
+                                <img src={activeArrow} alt='arrowRight' />  
+                            </button>
+                        }
                     </div>
                 </div>
-                <Pagination
+                {/* <Pagination
                     usersPerPage={this.state.usersPerPage}
                     totalUsers={this.props.users.length}
                     paginate={paginate}
-                />
+                /> */}
             </div>
         )
     }
@@ -72,6 +126,7 @@ class UsersList extends React.Component {
 
 const mapStateToProps = (state) => ({
     users: state.users.data,
+    searchInput: state.users.searchInput,
 })
 
 
