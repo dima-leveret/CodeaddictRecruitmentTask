@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 import UserCard from './UserCard';
 // import Pagination from './Pagination'
@@ -79,12 +80,13 @@ class UsersList extends React.Component {
                             user.login.replaceAll('[^A-Za-z0-9]', '').toLowerCase().includes(this.props.searchInput.toLowerCase())
                         )
                         .map(user => (
-                            <UserCard
-                            key={user.id}
+                                <UserCard
+                                key={user.id}
 
-                            avatar={user.avatar_url}
-                            nickname={user.login}
+                                avatar={user.avatar_url}
+                                nickname={user.login}
                             />
+
                         ))
                     }
                 </div>

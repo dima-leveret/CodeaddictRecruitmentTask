@@ -1,5 +1,6 @@
 import React from "react";
 
+
 import avatarPlaceholder from "../../img/avatar_placeholder.png"
 
 import "../../style/ListOfUsers/UserCard.css"
