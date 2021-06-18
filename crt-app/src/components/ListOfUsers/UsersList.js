@@ -80,13 +80,14 @@ class UsersList extends React.Component {
                             user.login.replaceAll('[^A-Za-z0-9]', '').toLowerCase().includes(this.props.searchInput.toLowerCase())
                         )
                         .map(user => (
+                            <Link key={user.id} to='/profilePage' style={{ textDecoration: 'none' }} >
                                 <UserCard
                                 key={user.id}
 
                                 avatar={user.avatar_url}
                                 nickname={user.login}
-                            />
-
+                                />
+                            </Link>
                         ))
                     }
                 </div>
