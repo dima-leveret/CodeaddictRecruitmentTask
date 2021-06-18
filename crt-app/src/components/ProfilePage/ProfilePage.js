@@ -1,14 +1,35 @@
 import React from "react";
 
+import { connect } from 'react-redux';
+import { cleanUser } from '../../state/users';
+
+import ProfilePageHeader from './ProfilePageHeader'
+
 import '../../style/ProfilePage/ProfilePage.css'
 
-function ProfilePage() {
-    return (
-        <div className='profile-page' >
-            <h3> Profile page </h3>
-        </div>
-        
-    )
+class ProfilePage extends React.Component {
+
+
+    render() {
+        return (
+            <div className='profile-page' >
+                <ProfilePageHeader/>
+            </div>
+            
+        )
+    }
+    
 }
 
-export default ProfilePage;
+const mapStateToProps = (state) => ({
+    user: state.users.user,
+    users: state.users.data
+   
+})
+
+
+const mapDispatchToProps = {
+    cleanUser,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProfilePage);

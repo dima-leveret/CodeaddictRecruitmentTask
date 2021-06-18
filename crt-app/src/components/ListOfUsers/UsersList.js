@@ -86,13 +86,14 @@ class UsersList extends React.Component {
 
                                 avatar={user.avatar_url}
                                 nickname={user.login}
+                                oneUser={user}
                                 />
                             </Link>
                         ))
                     }
                 </div>
                 <div className='showing' >
-                    <p className='showing-number' >Showing: {this.state.showedUsersNumber}/{this.props.users.length} </p>
+                    <p className='showing-number' >Showing: {currentUsers.length}/{this.props.users.length} </p>
                     <div className='showing-buttons' >
                         {
                             this.state.currentPage === 1
@@ -132,6 +133,7 @@ class UsersList extends React.Component {
 const mapStateToProps = (state) => ({
     users: state.users.data,
     searchInput: state.users.searchInput,
+    user: state.users.user
 })
 
 
