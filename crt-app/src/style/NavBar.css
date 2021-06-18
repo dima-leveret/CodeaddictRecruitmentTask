@@ -5,10 +5,17 @@ header {
     flex-direction: column;
     max-width: 1440px;
     width: 100%;
-    background-color: #d6ebe4;
     padding: 39px 10px 0;
     position: fixed;
     z-index: 1000;
+}
+
+.header-green-color {
+    background-color: #d6ebe4;
+}
+
+.header-gray-color {
+    background-color: #ececec;
 }
 
 .header-container {

@@ -19,10 +19,6 @@ class UsersList extends React.Component {
         pageNumber: [],
 
         showedUsersNumber: 12,
-        currentUsers: [],
-        pages: 0,
-        firstUserIndex: 0,
-        lastUserIndex: 0,
     }
 
     componentDidMount(){
@@ -33,8 +29,14 @@ class UsersList extends React.Component {
     nextPage = (num) => {
         this.setState({
             currentPage: this.state.currentPage + 1,
-            showedUsersNumber: this.state.showedUsersNumber + num,
         })
+
+        if (this.state.currentPage >= 1) {
+            this.setState({
+                showedUsersNumber: this.state.showedUsersNumber + num,
+            })
+        }
+
     }
 
     prevPage = (num) => {
@@ -58,7 +60,7 @@ class UsersList extends React.Component {
             this.state.pageNumber.push(i)
         };
 
-        console.log(currentUsers.length);
+        console.log(this.state.currentPage, currentUsers.length);
 
         // function to show appropriate users on the page
         // const paginate = pageNamber => {

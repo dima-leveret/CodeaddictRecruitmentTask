@@ -6,7 +6,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 30px;
+    margin: 0 10px 30px 10px;
 }
 
 .user-avatar-container {
