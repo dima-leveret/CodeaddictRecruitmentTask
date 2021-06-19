@@ -76,9 +76,9 @@ class UsersList extends React.Component {
                 <div className='users-list' >
                     {
                         currentUsers
-                        .filter(user => 
-                            user.login.replaceAll('[^A-Za-z0-9]', '').toLowerCase().includes(this.props.searchInput.toLowerCase())
-                        )
+                        // .filter(user => 
+                        //     user.login.replaceAll('[^A-Za-z0-9]', '').toLowerCase().includes(this.props.searchInput.toLowerCase())
+                        // )
                         .map(user => (
                             <Link key={user.id} to='/profilePage' style={{ textDecoration: 'none' }} >
                                 <UserCard

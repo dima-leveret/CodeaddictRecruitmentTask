@@ -6,7 +6,7 @@ import profileAvatarPlaceholder from "../../img/profile-avatar-placeholder.png"
 import followingIcon from "../../img/following-icon.svg"
 import followersIcon from "../../img/followers-icon.svg"
 
-import "../../style/ProfilePage/ProfilePageHeader.css"
+import "../../style/ProfilePage/ProfilePageHeader.css";
 
 class ProfilePageHeader extends React.Component {
 
@@ -32,11 +32,11 @@ class ProfilePageHeader extends React.Component {
                                 <div className='profile-follow' >
                                     <div className='profile-following-ers' >
                                         <img src={followingIcon} alt='profile-following-icon' />
-                                        <p> Following (0) </p>
+                                        <p> Following ({this.props.subscriptions.length}) </p>
                                     </div>
                                     <div className='profile-following-ers' >
                                         <img src={followersIcon} alt='profile-followers-icon' />
-                                        <p> Followers (0) </p>
+                                        <p> Followers ({this.props.followers.length}) </p>
                                     </div>
                                 </div>
                             </div> 
