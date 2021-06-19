@@ -1,7 +1,10 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { connect } from 'react-redux';
 
 import profileAvatarPlaceholder from "../../img/profile-avatar-placeholder.png"
+import followingIcon from "../../img/following-icon.svg"
+import followersIcon from "../../img/followers-icon.svg"
 
 import "../../style/ProfilePage/ProfilePageHeader.css"
 
@@ -11,23 +14,71 @@ class ProfilePageHeader extends React.Component {
     render() {
         return (
             <div className='profile-page-header' >
-                <div className='profile-page-header-container' >
-                    <div className='profile-avatar-container' >
-                        {
-                            this.props.user
-                            ?
+                {
+                    this.props.user
+                    ?
+                    <div className='profile-page-heiader-container' >
+                        <div className='profile-avatar-container' >
                             <img 
                             className='profile-avatar' 
                             src={this.props.user.avatar_url} 
-                            alt='profile-avatar-placeholder' />
-                            :
-                            <img 
-                            className='profile-avatar' 
-                            src={profileAvatarPlaceholder} 
-                            alt='profile-avatar-placeholder' />
-                        }
+                            alt='profile-avatar-placeholder' 
+                            /> 
+                        </div>
+                        <div className='profile-info-container' >
+                            <div className='profile-info' >
+                                <p className='profile-name' >James Beard</p>
+                                <p className='profile-nickname' > {this.props.user.login} </p>
+                                <div className='profile-follow' >
+                                    <div className='profile-following-ers' >
+                                        <img src={followingIcon} alt='profile-following-icon' />
+                                        <p> Following (0) </p>
+                                    </div>
+                                    <div className='profile-following-ers' >
+                                        <img src={followersIcon} alt='profile-followers-icon' />
+                                        <p> Followers (0) </p>
+                                    </div>
+                                </div>
+                            </div> 
+                                <a  
+                                className='btn-to-github' 
+                                href={this.props.user.html_url} target='_blank' 
+                                rel="no noreferrer" >
+                                    <p>View on GitHub</p>
+                                </a>
+                        </div>
                     </div>
-                </div>
+                    :
+                    <div className='profile-page-heiader-container' >
+                        <div className='profile-avatar-container' >
+                            <img 
+                                className='profile-avatar' 
+                                src={profileAvatarPlaceholder} 
+                                alt='profile-avatar-placeholder' 
+                            />
+                        </div>
+                        <div className='profile-info-container' >
+                            <div className='profile-info' >
+                                <p className='profile-name' >James Beard</p>
+                                <p className='profile-nickname' >Nickname</p>
+                                <div className='profile-follow' >
+                                    <div className='profile-following-ers' >
+                                        <img src={followingIcon} alt='profile-following-icon' />
+                                        <p> Following (0) </p>
+                                    </div>
+                                    <div className='profile-following-ers' >
+                                        <img src={followersIcon} alt='profile-followers-icon' />
+                                        <p> Followers (0) </p>
+                                    </div>
+                                </div>
+                            </div> 
+                            
+                            <a className='btn-to-github' href='#' >
+                                <p>No GitHub link</p> 
+                            </a>
+                        </div>
+                    </div>
+                }
             </div>
         )
     }
