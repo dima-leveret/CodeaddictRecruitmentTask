@@ -3,7 +3,8 @@ import React from "react";
 import { connect } from 'react-redux';
 import { cleanUser } from '../../state/users';
 
-import ProfilePageHeader from './ProfilePageHeader'
+import ProfilePageHeader from './ProfilePageHeader';
+import ProfilePageRepos from './ProfilePageRepos';
 
 import '../../style/ProfilePage/ProfilePage.css'
 
@@ -11,7 +12,8 @@ class ProfilePage extends React.Component {
 
     state = {
         subscriptions: [],
-        followers: []
+        followers: [],
+        repos: []
     }
 
     fetchSunscriptions = () => {
@@ -32,7 +34,7 @@ class ProfilePage extends React.Component {
                 console.log(this.state.subscriptions);
             })
         } else {
-            console.log('There is no user');
+            console.log('There is no user subscriptions');
         }
         
     }
@@ -55,7 +57,30 @@ class ProfilePage extends React.Component {
                 console.log(this.state.followers);
             })
         } else {
-            console.log('There is no user');
+            console.log('There is no user followers');
+        }
+        
+    }
+
+    fetchRepos = () => {
+        if (this.props.user) {
+            fetch(`https://api.github.com/users/${this.props.user.login}/repos`)
+            .then(response => response.json())
+            .then(data => {
+                const formattedData = Object.keys(data)
+                    .map(key => ({
+                            id: key,
+                            ...data[key]
+                        })
+                    );
+
+                this.setState({
+                    repos: formattedData
+                })
+                console.log(this.state.repos);
+            })
+        } else {
+            console.log('There is no user repos');
         }
         
     }
@@ -63,6 +88,7 @@ class ProfilePage extends React.Component {
     componentDidMount() {
         this.fetchSunscriptions();
         this.fetchFollowers();
+        this.fetchRepos();
     }
 
     render() {
@@ -71,7 +97,9 @@ class ProfilePage extends React.Component {
                 <ProfilePageHeader
                     subscriptions={this.state.subscriptions}
                     followers={this.state.followers}
+                    repos={this.state.repos}
                 />
+                <ProfilePageRepos/>
             </div>
             
         )
