@@ -1,5 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { getUser, cleanUser } from '../../state/users';
+import { Link } from 'react-router-dom';
+
 
 import '../../style/ProfilePage/ProfilePageRepos.css';
 
@@ -61,19 +64,26 @@ class ProfilePageRepos extends React.Component {
                                 >
                                 {
                                     this.props.repos.map(repo => (
-                                    
-                                        <div className='repo' key={repo.id} >
-                                            <div className='repo-container' >
-                                                <div className='repo-owner-avatar-container' >
-                                                    <img className='repo-owner-avatar' src={repo.owner.avatar_url} alt='repo-owner-avatar' />
-                                                </div>
-                                                <div className='repo-info' >
-                                                    <p className='repo-name' >{repo.name}</p>
-                                                    <p className='repo-forks' >Forked from {repo.full_name} </p>
-                                                    <p className='repo-desription' > {repo.description} </p>
+                                        <a 
+                                        target='_blanck' 
+                                        href={repo.html_url} 
+                                        style={{ textDecoration: 'none' }} 
+                                        key={repo.id}
+                                        >
+                                            <div className='repo'  >
+                                                <div className='repo-container' >
+                                                    <div className='repo-owner-avatar-container' >
+                                                        <img className='repo-owner-avatar' src={repo.owner.avatar_url} alt='repo-owner-avatar' />
+                                                    </div>
+                                                    <div className='repo-info' >
+                                                        <p className='repo-name' >{repo.name}</p>
+                                                        <p className='repo-forks' >Forked from {repo.full_name} </p>
+                                                        <p className='repo-desription' > {repo.description} </p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </a>
+                                        
                                 
                                     ))
                                 }
@@ -84,18 +94,21 @@ class ProfilePageRepos extends React.Component {
                                 >
                                     {
                                         this.props.followers.map(follower => (
-                                            <div className='follower-card' >
-                                                <div className='follower-card-container' >
-                                                    <div className='follower-avatar-container' >
-                                                        <img 
-                                                            className='follower-avatar' 
-                                                            src={follower.avatar_url} 
-                                                            alt="follower-avatar_url" />
+                                            <Link onClick={() => this.props.getUser(follower)} key={follower.id} to='/profilePage' style={{ textDecoration: 'none' }} >
+                                                <div  className='follower-card' >
+                                                    <div className='follower-card-container' >
+                                                        <div className='follower-avatar-container' >
+                                                            <img 
+                                                                className='follower-avatar' 
+                                                                src={follower.avatar_url} 
+                                                                alt="follower-avatar_url" />
+                                                        </div>
+                                                        <p className='follower-name' >James Beard</p>
+                                                        <p className='follower-nickname' > {follower.login} </p>
                                                     </div>
-                                                    <p className='follower-name' >James Beard</p>
-                                                    <p className='follower-nickname' > {follower.login} </p>
                                                 </div>
-                                            </div>
+                                            </Link>
+                                            
                                         ))
                                     }
                                 
@@ -171,6 +184,8 @@ const mapStateToProps = (state) => ({
 
 
 const mapDispatchToProps = {
+    getUser,
+    cleanUser
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProfilePageRepos);
