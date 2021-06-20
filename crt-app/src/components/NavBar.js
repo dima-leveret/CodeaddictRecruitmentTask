@@ -37,6 +37,7 @@ class NavBar extends React.Component {
         this.setState({
             headerColor: 'header-green-color'
         })
+        this.handleOnBurgerClick();
     }
 
     changeHeaderColorToGray = () => {

@@ -6,14 +6,14 @@ import { cleanUser } from '../../state/users';
 import ProfilePageHeader from './ProfilePageHeader';
 import ProfilePageRepos from './ProfilePageRepos';
 
-import '../../style/ProfilePage/ProfilePage.css'
+import '../../style/ProfilePage/ProfilePage.css';
 
 class ProfilePage extends React.Component {
 
     state = {
         subscriptions: [],
         followers: [],
-        repos: []
+        repos: [],
     }
 
     fetchSunscriptions = () => {
@@ -31,7 +31,7 @@ class ProfilePage extends React.Component {
                 this.setState({
                     subscriptions: formattedData
                 })
-                console.log(this.state.subscriptions);
+                console.log('subscriptions:', this.state.subscriptions);
             })
         } else {
             console.log('There is no user subscriptions');
@@ -54,7 +54,7 @@ class ProfilePage extends React.Component {
                 this.setState({
                     followers: formattedData
                 })
-                console.log(this.state.followers);
+                console.log('followers:', this.state.followers);
             })
         } else {
             console.log('There is no user followers');
@@ -77,7 +77,7 @@ class ProfilePage extends React.Component {
                 this.setState({
                     repos: formattedData
                 })
-                console.log(this.state.repos);
+                console.log('repos:', this.state.repos);
             })
         } else {
             console.log('There is no user repos');
@@ -85,10 +85,21 @@ class ProfilePage extends React.Component {
         
     }
 
+
     componentDidMount() {
+
+        this.state.repos.map(repo => (
+                
+            this.setState({
+                repoName: repo.name,
+                repoForksUrl: repo.forks_url,
+            })
+        ))
+
         this.fetchSunscriptions();
         this.fetchFollowers();
         this.fetchRepos();
+
     }
 
     render() {
@@ -97,9 +108,11 @@ class ProfilePage extends React.Component {
                 <ProfilePageHeader
                     subscriptions={this.state.subscriptions}
                     followers={this.state.followers}
-                    repos={this.state.repos}
                 />
-                <ProfilePageRepos/>
+                <ProfilePageRepos
+                    repos={this.state.repos}
+                    followers={this.state.followers}
+                />
             </div>
             
         )

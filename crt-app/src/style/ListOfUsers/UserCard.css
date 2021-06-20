@@ -1,4 +1,4 @@
-.user-card-container {
+.user-card {
     width: 288px;
     height: 337px;
     border-radius: 15px;
@@ -6,7 +6,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 10px 30px 10px;
+    margin: 0 11px 30px;
 }
 
 .user-avatar-container {

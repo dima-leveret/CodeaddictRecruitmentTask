@@ -11,8 +11,8 @@ class UserCard extends React.Component {
 
     render() {
         return(
-            <div onClick={() => this.props.getUser(this.props.oneUser)} className='user-card-container' >
-                <div className='user-card' >
+            <div onClick={() => this.props.getUser(this.props.oneUser)} className='user-card' >
+                <div className='user-card-container' >
                     <div className='user-avatar-container' >
                         {
                             this.props.avatar
