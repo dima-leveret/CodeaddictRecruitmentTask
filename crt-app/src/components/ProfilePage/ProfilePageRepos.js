@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getUser, cleanUser } from '../../state/users';
+import { getUser, cleanUser, fetchUsers } from '../../state/users';
 import { Link } from 'react-router-dom';
 
 
@@ -15,7 +15,9 @@ class ProfilePageRepos extends React.Component {
         reposBackground: 'active-tab',
         followersBackground: '',
         reposDisplay: 'profile-repos-active',
-        followersDisplay: 'profile-followers-not-active'
+        followersDisplay: 'profile-followers-not-active',
+        followers: [],
+        repos: [],
     }
 
     onReposClick = () => {
@@ -36,6 +38,65 @@ class ProfilePageRepos extends React.Component {
         })
     }
 
+    fetchFollowers = () => {
+        if (this.props.user) {
+            fetch(`https://api.github.com/users/${this.props.user.login}/followers`)
+            .then(response => response.json())
+            .then(data => {
+                const formattedData = Object.keys(data)
+                    .map(key => ({
+                            id: key,
+                            ...data[key]
+                        })
+                    );
+
+                this.setState({
+                    followers: formattedData
+                })
+                console.log('followers:', this.state.followers);
+            })
+        } else {
+            console.log('There is no user followers');
+        }
+        
+    }
+
+    fetchRepos = () => {
+        if (this.props.user) {
+            fetch(`https://api.github.com/users/${this.props.user.login}/repos`)
+            .then(response => response.json())
+            .then(data => {
+                const formattedData = Object.keys(data)
+                    .map(key => ({
+                            id: key,
+                            ...data[key]
+                        })
+                    );
+
+                this.setState({
+                    repos: formattedData
+                })
+                console.log('repos:', this.state.repos);
+            })
+        } else {
+            console.log('There is no user repos');
+        }
+        
+    }
+
+    componentDidMount(){
+        this.fetchFollowers()
+        this.fetchRepos()
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.user !== this.props.user) {
+            this.fetchFollowers()
+            this.fetchRepos()
+        }
+    }
+
+
     render() {
         return(
             <div className='profile-page-repos' >
@@ -48,13 +109,13 @@ class ProfilePageRepos extends React.Component {
                             onClick={this.onReposClick} 
                             className={`${'tab'} ${this.state.reposBackground}`} 
                             >
-                                Repositories ({this.props.repos.length})
+                                Repositories ({this.state.repos.length})
                             </div>
                             <div  
                             onClick={this.onFollowersClick} 
                             className={`${'tab'} ${this.state.followersBackground}`} 
                             >
-                                Followers ({this.props.followers.length})
+                                Followers ({this.state.followers.length})
                             </div>
                         </div>
                         <div className='profile-repos-followers' >
@@ -63,7 +124,7 @@ class ProfilePageRepos extends React.Component {
                                 className={`${'profile-repos'} ${this.state.reposDisplay}`}  
                                 >
                                 {
-                                    this.props.repos.map(repo => (
+                                    this.state.repos.map(repo => (
                                         <a 
                                         target='_blanck' 
                                         href={repo.html_url} 
@@ -93,8 +154,12 @@ class ProfilePageRepos extends React.Component {
                                 className= {`${'profile-followers'} ${this.state.followersDisplay}`}  
                                 >
                                     {
-                                        this.props.followers.map(follower => (
-                                            <Link onClick={() => this.props.getUser(follower)} key={follower.id} to='/profilePage' style={{ textDecoration: 'none' }} >
+                                        this.state.followers.map(follower => (
+                                            <Link 
+                                            onClick={() => this.props.getUser(follower)} 
+                                            key={follower.id} 
+                                            to={`/profilePage/${follower.login}`} 
+                                            style={{ textDecoration: 'none' }} >
                                                 <div  className='follower-card' >
                                                     <div className='follower-card-container' >
                                                         <div className='follower-avatar-container' >
@@ -108,7 +173,6 @@ class ProfilePageRepos extends React.Component {
                                                     </div>
                                                 </div>
                                             </Link>
-                                            
                                         ))
                                     }
                                 
@@ -185,7 +249,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
     getUser,
-    cleanUser
+    cleanUser,
+    fetchUsers
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProfilePageRepos);

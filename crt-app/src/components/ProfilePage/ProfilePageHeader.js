@@ -10,6 +10,68 @@ import "../../style/ProfilePage/ProfilePageHeader.css";
 
 class ProfilePageHeader extends React.Component {
 
+    state = {
+        subscriptions: [],
+        followers: [],
+    }
+
+    fetchSunscriptions = () => {
+        if (this.props.user) {
+            fetch(`https://api.github.com/users/${this.props.user.login}/subscriptions`)
+            .then(response => response.json())
+            .then(data => {
+                const formattedData = Object.keys(data)
+                    .map(key => ({
+                            id: key,
+                            ...data[key]
+                        })
+                    );
+
+                this.setState({
+                    subscriptions: formattedData
+                })
+                console.log('subscriptions:', this.state.subscriptions);
+            })
+        } else {
+            console.log('There is no user subscriptions');
+        }
+        
+    }
+
+    fetchFollowers = () => {
+        if (this.props.user) {
+            fetch(`https://api.github.com/users/${this.props.user.login}/followers`)
+            .then(response => response.json())
+            .then(data => {
+                const formattedData = Object.keys(data)
+                    .map(key => ({
+                            id: key,
+                            ...data[key]
+                        })
+                    );
+
+                this.setState({
+                    followers: formattedData
+                })
+                console.log('followers:', this.state.followers);
+            })
+        } else {
+            console.log('There is no user followers');
+        }
+        
+    }
+
+    componentDidMount() {
+        this.fetchSunscriptions();
+        this.fetchFollowers();
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.user !== this.props.user) {
+            this.fetchSunscriptions();
+            this.fetchFollowers();
+        }
+    }
 
     render() {
         return (
@@ -32,11 +94,11 @@ class ProfilePageHeader extends React.Component {
                                 <div className='profile-follow' >
                                     <div className='profile-following-ers' >
                                         <img src={followingIcon} alt='profile-following-icon' />
-                                        <p> Following ({this.props.subscriptions.length}) </p>
+                                        <p> Following ({this.state.subscriptions.length}) </p>
                                     </div>
                                     <div className='profile-following-ers' >
                                         <img src={followersIcon} alt='profile-followers-icon' />
-                                        <p> Followers ({this.props.followers.length}) </p>
+                                        <p> Followers ({this.state.followers.length}) </p>
                                     </div>
                                 </div>
                             </div> 

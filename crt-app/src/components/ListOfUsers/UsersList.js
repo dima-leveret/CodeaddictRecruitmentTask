@@ -76,11 +76,11 @@ class UsersList extends React.Component {
                 <div className='users-list' >
                     {
                         currentUsers
-                        // .filter(user => 
-                        //     user.login.replaceAll('[^A-Za-z0-9]', '').toLowerCase().includes(this.props.searchInput.toLowerCase())
-                        // )
+                        .filter(user => 
+                            user.login.replaceAll('[^A-Za-z0-9]', '').toLowerCase().includes(this.props.searchInput.toLowerCase())
+                        )
                         .map(user => (
-                            <Link key={user.id} to='/profilePage' style={{ textDecoration: 'none' }} >
+                            <Link key={user.id} to={`/profilePage/${user.login}`} style={{ textDecoration: 'none' }} >
                                 <UserCard
                                 key={user.id}
 
@@ -133,6 +133,7 @@ class UsersList extends React.Component {
 const mapStateToProps = (state) => ({
     users: state.users.data,
     searchInput: state.users.searchInput,
+    user: state.users.user
 })
 
 
