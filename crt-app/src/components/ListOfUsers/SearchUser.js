@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
-import { setInputValue, cleanInputValue } from "../../state/users"
+import { setInputValue, cleanInputValue } from "../../state/users";
+import { setGrayColor } from '../../state/navColor'
 
 import "../../style/ListOfUsers/SearchUser.css"
 
@@ -13,6 +14,10 @@ class SearchUser extends React.Component {
 
     cleanSearchValue = () => {
         this.props.cleanInputValue()
+    }
+
+    componentDidMount() {
+        this.props.setGrayColor()
     }
 
     render() {
@@ -48,7 +53,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
     setInputValue,
-    cleanInputValue
+    cleanInputValue,
+    setGrayColor
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchUser);

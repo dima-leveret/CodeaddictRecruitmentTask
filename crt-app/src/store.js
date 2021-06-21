@@ -1,7 +1,8 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from 'redux-thunk';
 
-import { users } from './state/users'
+import { users } from './state/users';
+import { navColor } from "./state/navColor";
 
 
 const loggerMiddleware = store => next => action => {
@@ -20,6 +21,7 @@ const enhancer = composeEnhancers(middlewareEnhancer)
 
 const resducer = combineReducers({
     users,
+    navColor,
 })
 
 export const store = createStore(resducer, enhancer)

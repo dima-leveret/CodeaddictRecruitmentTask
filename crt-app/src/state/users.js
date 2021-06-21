@@ -28,6 +28,7 @@ export const users = (state = initialSate, action) => {
                 data: action.payload,
                 isLoading: false,
                 searchInput: '',
+                user: null,
             }
 
         case SET_LOADING:

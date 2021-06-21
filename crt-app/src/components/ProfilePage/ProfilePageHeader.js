@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { connect } from 'react-redux';
+import { setDarkBlueColor } from '../../state/navColor';
 
 import profileAvatarPlaceholder from "../../img/profile-avatar-placeholder.png"
 import followingIcon from "../../img/following-icon.svg"
@@ -64,6 +65,7 @@ class ProfilePageHeader extends React.Component {
     componentDidMount() {
         this.fetchSunscriptions();
         this.fetchFollowers();
+        this.props.setDarkBlueColor()
     }
 
     componentDidUpdate(prevProps) {
@@ -153,6 +155,7 @@ const mapStateToProps = (state) => ({
 
 
 const mapDispatchToProps = {
+    setDarkBlueColor,
 }
 
 

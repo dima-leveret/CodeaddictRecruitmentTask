@@ -1,6 +1,5 @@
 import React from "react";
 import { Switch, Route } from 'react-router-dom';
-import { connect } from 'react-redux';
 
 import './App.css';
 
@@ -10,50 +9,31 @@ import LandingPageMain from './components/landing-page/LP-main';
 import ListOfUsersAndSearch from './components/ListOfUsers/ListOfUsersAndSearch';
 import ProfilePage from "./components/ProfilePage/ProfilePage"
 
-class App extends React.Component {
+function App() {
 
-
-  render() {
-    return (
-      <div className="App">
-        <NavBar/>
+  return (
+    <div className="App">
+      <NavBar/>
   
-        <Switch>
-          <Route exact path='/' >
-            <LandingPageMain/>
-          </Route>
+      <Switch>
+        <Route exact path='/' >
+          <LandingPageMain/>
+        </Route>
   
-          <Route path='/listOfUsers' >
-            <ListOfUsersAndSearch/>
-          </Route>
-          
-          {
-            this.props.user
-            ?
-            <Route path={`/profilePage/${this.props.user.login}`} >
-              <ProfilePage/>
-            </Route>
-            :
-            <Route path={`/profilePage`} >
-              <ProfilePage/>
-            </Route>
-          }
-          
-        </Switch>
+        <Route path='/listOfUsers' >
+          <ListOfUsersAndSearch/>
+        </Route>
+    
+        <Route path='/profilePage' >
+          <ProfilePage/>
+        </Route>
+      </Switch>
   
-        <SubscribeFooter/>
-      </div>
-    )
-  }
+      <SubscribeFooter/>
+    </div>
+  )
   
 }
 
-const mapStateToProps = (state) => ({
-  user: state.users.user
-})
 
-
-const mapDispatchToProps = {
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
