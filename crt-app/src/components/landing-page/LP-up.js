@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { setGreenColor } from '../../state/navColor';
 
 import '../../style/landing-page/LP-up.css';
 import stripedCircle from '../../img/header-striped-circle.svg';
@@ -6,6 +8,9 @@ import darkDircle from '../../img/dark-circle.svg';
 
 class LendingPageUp extends React.Component {
 
+    componentDidMount() {
+        this.props.setGreenColor()
+    }
 
     render() {
         return(
@@ -34,4 +39,13 @@ class LendingPageUp extends React.Component {
     }
 }
 
-export default LendingPageUp;
+const mapStateToProps = (state) => ({
+    
+})
+
+
+const mapDispatchToProps = {
+    setGreenColor,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LendingPageUp);

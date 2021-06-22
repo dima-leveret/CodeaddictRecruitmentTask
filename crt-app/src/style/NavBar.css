@@ -10,12 +10,16 @@ header {
     z-index: 1000;
 }
 
-.header-green-color {
+.nav-green-color {
     background-color: #d6ebe4;
 }
 
-.header-gray-color {
+.nav-gray-color {
     background-color: #ececec;
+}
+
+.nav-darkBlue-color {
+    background-color: #1d263a;
 }
 
 .header-container {
@@ -29,7 +33,6 @@ header {
 .teamify-img {
     width: 91px;
     height: 24px;
-    object-fit: contain;
 }
 
 .nav {
@@ -43,25 +46,39 @@ header {
     list-style: none;
 }
 
+.nav-link-dark-color {
+    color: #262729;
+}
+
+.nav-link-white-color {
+    color: #fff;
+}
+
 .nav-link {
     height: 30px;
     font-size: 17px;
     font-weight: bold;
     line-height: 1.76;
     text-align: right;
-    color: #262729;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     cursor: pointer;
 }
 
-header > hr {
+.hr-dark-border {
+    border: solid 1px #1d263a;
+}
+
+.hr-white-border {
+    border: solid 1px #cbcbcb;
+}
+
+.hr {
     max-width: 1240px;
     width: 100%;
     height: 1px;
     margin: 28px 0 0;
     transform: rotate(0deg);
     opacity: 0.15;
-    border: solid 1px #1d263a;
 }
 
 .burger-menu {
@@ -90,7 +107,6 @@ header > hr {
         z-index: 1000;
         align-items: center;
         margin-top: 99px;
-        background-color: #d6ebe4;
         transform: translateX(100%);
         transition: ease-in-out 0.4s;
     }
@@ -106,7 +122,6 @@ header > hr {
         z-index: 1000;
         align-items: center;
         margin-top: 99px;
-        background-color: #d6ebe4;
         transform: translateX(0);
         transition: ease-in-out 0.4s;
     }
@@ -122,13 +137,12 @@ header > hr {
         font-size: 17px;
         font-weight: bold;
         line-height: 1.76;
-        color: #262729;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         margin: 40px 0 0;
     }
     
     .burger {
-        filter: invert();
+        filter: invert(50%);
         height: 30px;
     }
 }

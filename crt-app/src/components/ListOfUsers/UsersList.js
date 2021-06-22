@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 import UserCard from './UserCard';
 // import Pagination from './Pagination'
@@ -79,17 +80,24 @@ class UsersList extends React.Component {
                             user.login.replaceAll('[^A-Za-z0-9]', '').toLowerCase().includes(this.props.searchInput.toLowerCase())
                         )
                         .map(user => (
-                            <UserCard
-                            key={user.id}
+                            <Link 
+                                key={user.id} 
+                                to={`/profilePage/${user.login}`} 
+                                style={{ textDecoration: 'none' }} 
+                            >
+                                <UserCard
+                                key={user.id}
 
-                            avatar={user.avatar_url}
-                            nickname={user.login}
-                            />
+                                avatar={user.avatar_url}
+                                nickname={user.login}
+                                oneUser={user}
+                                />
+                            </Link>
                         ))
                     }
                 </div>
                 <div className='showing' >
-                    <p className='showing-number' >Showing: {this.state.showedUsersNumber}/{this.props.users.length} </p>
+                    <p className='showing-number' >Showing: {currentUsers.length}/{this.props.users.length} </p>
                     <div className='showing-buttons' >
                         {
                             this.state.currentPage === 1
