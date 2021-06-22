@@ -107,13 +107,13 @@ class ProfilePageRepos extends React.Component {
                         <div className='profile-tabs' >
                             <div 
                             onClick={this.onReposClick} 
-                            className={`${'tab'} ${this.state.reposBackground}`} 
+                            className={`tab ${this.state.reposBackground}`} 
                             >
                                 Repositories ({this.state.repos.length})
                             </div>
                             <div  
                             onClick={this.onFollowersClick} 
-                            className={`${'tab'} ${this.state.followersBackground}`} 
+                            className={`tab ${this.state.followersBackground}`} 
                             >
                                 Followers ({this.state.followers.length})
                             </div>
@@ -121,7 +121,7 @@ class ProfilePageRepos extends React.Component {
                         <div className='profile-repos-followers' >
                             <div 
                                 onClick={this.onReposClick} 
-                                className={`${'profile-repos'} ${this.state.reposDisplay}`}  
+                                className={`profile-repos ${this.state.reposDisplay}`}  
                                 >
                                 {
                                     this.state.repos.map(repo => (
@@ -150,7 +150,7 @@ class ProfilePageRepos extends React.Component {
                             </div>
                             <div 
                                 onClick={this.onFollowersClick} 
-                                className= {`${'profile-followers'} ${this.state.followersDisplay}`}  
+                                className= {`profile-followers ${this.state.followersDisplay}`}  
                                 >
                                     {
                                         this.state.followers.map(follower => (
@@ -183,13 +183,13 @@ class ProfilePageRepos extends React.Component {
                         <div className='profile-tabs' >
                             <div 
                             onClick={this.onReposClick} 
-                            className={`${'tab'} ${this.state.reposBackground}`} 
+                            className={`tab ${this.state.reposBackground}`} 
                             >
                                 Repositories (0)
                             </div>
                             <div  
                             onClick={this.onFollowersClick} 
-                            className={`${'tab'} ${this.state.followersBackground}`} 
+                            className={`tab ${this.state.followersBackground}`} 
                             >
                                 Followers (0)
                             </div>
@@ -197,7 +197,7 @@ class ProfilePageRepos extends React.Component {
                         <div className='profile-repos-followers' >
                             <div 
                                 onClick={this.onReposClick} 
-                                className={`${'profile-repos'} ${this.state.reposDisplay}`}  
+                                className={`profile-repos ${this.state.reposDisplay}`}  
                             >
                                 <div className='repo' >
                                     <div className='repo-container' >
@@ -215,7 +215,7 @@ class ProfilePageRepos extends React.Component {
 
                             <div 
                                 onClick={this.onFollowersClick} 
-                                className= {`${'profile-followers'} ${this.state.followersDisplay}`}  
+                                className= {`profile-followers ${this.state.followersDisplay}`}  
                             >
                                 <div className='follower-card' >
                                     <div className='follower-card-container' >

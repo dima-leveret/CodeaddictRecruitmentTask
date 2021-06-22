@@ -330,6 +330,10 @@
         margin-top: 20px;
     }
 
+    .review-card {
+        margin: 20px 0 0 0;
+    }
+
     .reviews-text {
         flex-direction: column;
     }
@@ -385,5 +389,11 @@
     .airbnb-and-goole-images {
         margin: 0;
         align-self: center;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .avatar-name-position {
+        flex-direction: column;
     }
 }

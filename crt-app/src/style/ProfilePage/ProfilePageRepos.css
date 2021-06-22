@@ -213,10 +213,23 @@
         margin-bottom: 15px;
     }
 
-    .repo-name, .repo-desription  {
+    .repo-name  {
         font-size: 20px;
     }
+
+    .repo-desription {
+        font-size: 10px;
+    }
+
+    .repo-forks {
+        font-size: 10px;
+    }
+
     .repo {
         padding: 15px;
+    }
+
+    .repo-info {
+        text-align: center;
     }
 }

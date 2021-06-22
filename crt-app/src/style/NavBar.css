@@ -142,7 +142,7 @@ header {
     }
     
     .burger {
-        filter: invert();
+        filter: invert(50%);
         height: 30px;
     }
 }
