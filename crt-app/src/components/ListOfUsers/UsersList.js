@@ -18,8 +18,6 @@ class UsersList extends React.Component {
         currentPage: 1,
         usersPerPage: 12,
         pageNumber: [],
-
-        showedUsersNumber: 12,
     }
 
     componentDidMount(){
@@ -27,23 +25,15 @@ class UsersList extends React.Component {
     }
 
 
-    nextPage = (num) => {
+    nextPage = () => {
         this.setState({
             currentPage: this.state.currentPage + 1,
         })
-
-        if (this.state.currentPage >= 1) {
-            this.setState({
-                showedUsersNumber: this.state.showedUsersNumber + num,
-            })
-        }
-
     }
 
-    prevPage = (num) => {
+    prevPage = () => {
         this.setState({
             currentPage: this.state.currentPage - 1,
-            showedUsersNumber: this.state.showedUsersNumber - num,
         })
     }
 
@@ -60,8 +50,6 @@ class UsersList extends React.Component {
         for (let i = 1; i <= pages; i++) {
             this.state.pageNumber.push(i)
         };
-
-        console.log(this.state.currentPage, currentUsers.length);
 
         // function to show appropriate users on the page
         // const paginate = pageNamber => {
@@ -106,7 +94,7 @@ class UsersList extends React.Component {
                                 <img src={disabledArrow} alt='arrowLeft' />
                             </button>
                             :
-                            <button className='btn btn-active' onClick={() => this.prevPage(currentUsers.length)} >
+                            <button className='btn btn-active' onClick={() => this.prevPage()} >
                                 <img className='active-left-arrow' src={activeArrow} alt='arrowLeft' />
                             </button>
                         }
@@ -118,7 +106,7 @@ class UsersList extends React.Component {
                                 <img className='disabled-right-arrow' src={disabledArrow} alt='arrowRight' />  
                             </button>
                             :
-                            <button className='btn btn-active' onClick={() => this.nextPage(currentUsers.length)} >  
+                            <button className='btn btn-active' onClick={() => this.nextPage()} >  
                                 <img src={activeArrow} alt='arrowRight' />  
                             </button>
                         }
