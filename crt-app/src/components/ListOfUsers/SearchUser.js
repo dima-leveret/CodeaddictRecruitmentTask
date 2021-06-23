@@ -18,7 +18,7 @@ class SearchUser extends React.Component {
             [event.target.name]: event.target.value,
         })
 
-        this.props.setInputValue(event.target.value)
+        // this.props.setInputValue(event.target.value)
     }
 
     cleanSearchValue = () => {
@@ -32,6 +32,12 @@ class SearchUser extends React.Component {
         this.props.setGrayColor()
     }
 
+    onSearchedUserClick = (nickname) => {
+        this.setState({
+            inputValue: nickname,
+        })
+    }
+
     render() {
         return(
             <div className='search-container' >
@@ -39,27 +45,49 @@ class SearchUser extends React.Component {
                     <h3>Meet your future team!</h3>
                     <form className='search-input-container'>
                         <input
-                        autocomplete="off"
+                        autoComplete="off"
                         type='text'
                         placeholder='Search by Nickname'
                         id='search'
                         name='inputValue'
                         value={this.state.inputValue}
                         onChange={this.handleOnInputChange}
-                        />  
+                        /> 
+                        <div className='cross-search' >
                         {
-                            this.props.searchInput !== ''
+                            this.state.inputValue !== ''
                             &&
                             <span onClick={() => this.cleanSearchValue()} className='cross-container' >
                                 <img className='cross' src={cleanInput} alt='cross'/>   
                             </span>
                         }
                         
-                        <label
-                        onClick={() => this.props.setInputValue(this.state.inputValue)}
-                        htmlFor='search' 
-                        >Search</label>
+                            <label
+                            className='serach-btn'
+                            onClick={() => this.props.setInputValue(this.state.inputValue)}
+                            htmlFor='search' 
+                            >Search</label>
+                        </div> 
+                        
                     </form>
+                    <div className='user-searcher-container' >
+                    {
+                        this.state.inputValue !== ''
+                        &&
+                        this.props.users
+                        .filter(user => 
+                            user.login.replaceAll('[^A-Za-z0-9]', '').toLowerCase().includes(this.state.inputValue.toLocaleLowerCase())
+                        )
+                        .map(user => (
+                            
+                            <div  onClick={() => this.onSearchedUserClick(user.login)} key={user.id} className='searched-users' >
+                                <img className='mini-avatar' src={user.avatar_url} alt='mini-avatar' />
+                                <p className='searched-user-login' > {user.login} </p>
+                            </div>
+                            
+                        ))
+                    }
+                    </div>
                 </div>
             </div>
             
@@ -69,6 +97,7 @@ class SearchUser extends React.Component {
 
 const mapStateToProps = (state) => ({
     searchInput: state.users.searchInput,
+    users: state.users.data
 })
 
 

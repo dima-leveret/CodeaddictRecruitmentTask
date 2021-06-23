@@ -47,13 +47,20 @@
     outline: none;
 }
 
-.search-input-container > label {
+.cross-search {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.serach-btn {
     border: none;
     font-family: 'Gill Sans', 'Gill Sans MT', sans-serif;
     max-width: 116px;
     width: 100%;
     height: 60px;
-    padding-top: 15px;
     text-align: center;
     border-radius: 10px;
     background-color: #0a043c;
@@ -62,6 +69,7 @@
     font-weight: bold;
     line-height: 1.76;
     cursor: pointer;
+    padding-top: 15px;
 }
 
 .cross-container {
@@ -76,6 +84,37 @@
     width: 100%;
     height: auto;
     filter: invert(50%);
+}
+
+.user-searcher-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 44px 64px 0 rgba(0, 0, 0, 0.1);
+    padding: 0 35px;
+}
+
+.searched-users {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.searched-users:hover {
+    cursor: pointer;
+    background-color: lightgray;
+    border-radius: 15px;
+}
+
+.mini-avatar {
+    width: 30px;
+    border-radius: 50px;
+}
+
+.searched-user-login{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-left: 10px;
 }
 
 @media only screen and (max-width: 768px) {

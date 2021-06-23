@@ -65,11 +65,10 @@ class UsersList extends React.Component {
                     {
                         this.props.searchInput !== ''
                         ?
-                        filteredUsers = this.props.users
-                        .filter(user => 
-                            user.login.replaceAll('[^A-Za-z0-9]', '').toLowerCase().includes(this.props.searchInput.toLowerCase())
-                        )
+                        this.props.users
                         .map(user => (
+                            user.login === this.props.searchInput
+                            &&
                             <Link 
                                 key={user.id} 
                                 to={`/profilePage/${user.login}`} 
