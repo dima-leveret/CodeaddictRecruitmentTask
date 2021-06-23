@@ -64,6 +64,20 @@
     cursor: pointer;
 }
 
+.cross-container {
+    max-width: 30px;
+    width: 100%;
+    display: flex;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.cross {
+    width: 100%;
+    height: auto;
+    filter: invert(50%);
+}
+
 @media only screen and (max-width: 768px) {
 
     .user-search {

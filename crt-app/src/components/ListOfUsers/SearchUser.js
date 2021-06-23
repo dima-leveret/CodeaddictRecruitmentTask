@@ -1,19 +1,30 @@
 import React from "react";
 import { connect } from 'react-redux';
 import { setInputValue, cleanInputValue } from "../../state/users";
-import { setGrayColor } from '../../state/navColor'
+import { setGrayColor } from '../../state/navColor';
+
+import cleanInput from '../../img/closeBurger.svg'
 
 import "../../style/ListOfUsers/SearchUser.css"
 
 class SearchUser extends React.Component {
 
+    state = {
+        inputValue: '',
+    }
 
     handleOnInputChange = (event) => {
-        this.props.setInputValue(event.target.value)
+        this.props.setInputValue(this.state.inputValue)
+        this.setState({
+            [event.target.name]: event.target.value,
+        })
     }
 
     cleanSearchValue = () => {
-        this.props.cleanInputValue()
+        this.props.cleanInputValue();
+        this.setState({
+            inputValue: '',
+        })
     }
 
     componentDidMount() {
@@ -30,12 +41,20 @@ class SearchUser extends React.Component {
                         type='text'
                         placeholder='Search by Nickname'
                         id='search'
-                        name='searchValue'
-                        value={this.props.searchInput}
+                        name='inputValue'
+                        value={this.state.inputValue}
                         onChange={this.handleOnInputChange}
-                        />
+                        />  
+                        {
+                            this.props.searchInput !== ''
+                            &&
+                            <span onClick={() => this.cleanSearchValue()} className='cross-container' >
+                                <img className='cross' src={cleanInput} alt='cross'/>   
+                            </span>
+                        }
+                        
                         <label
-                        onClick={this.cleanSearchValue}
+                        onClick={() => this.props.setInputValue(this.state.inputValue)}
                         htmlFor='search' 
                         >Search</label>
                     </form>
