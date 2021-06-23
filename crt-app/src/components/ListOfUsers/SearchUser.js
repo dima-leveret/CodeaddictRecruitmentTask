@@ -14,10 +14,11 @@ class SearchUser extends React.Component {
     }
 
     handleOnInputChange = (event) => {
-        this.props.setInputValue(this.state.inputValue)
         this.setState({
             [event.target.name]: event.target.value,
         })
+
+        this.props.setInputValue(event.target.value)
     }
 
     cleanSearchValue = () => {
@@ -38,6 +39,7 @@ class SearchUser extends React.Component {
                     <h3>Meet your future team!</h3>
                     <form className='search-input-container'>
                         <input
+                        autocomplete="off"
                         type='text'
                         placeholder='Search by Nickname'
                         id='search'
