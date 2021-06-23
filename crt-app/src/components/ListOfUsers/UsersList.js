@@ -18,6 +18,7 @@ class UsersList extends React.Component {
         currentPage: 1,
         usersPerPage: 12,
         pageNumber: [],
+
     }
 
     componentDidMount(){
@@ -45,7 +46,7 @@ class UsersList extends React.Component {
         const currentUsers = this.props.users.slice(firstUserIndex, lastUserIndex);
         const pages = Math.ceil(this.props.users.length / this.state.usersPerPage);
 
-        
+        let filteredUsers = []
 
         for (let i = 1; i <= pages; i++) {
             this.state.pageNumber.push(i)
@@ -58,12 +59,13 @@ class UsersList extends React.Component {
         //     })
         // };
 
-
         return(
             <div className='users' >
                 <div className='users-list' >
                     {
-                        currentUsers
+                        this.props.searchInput !== ''
+                        ?
+                        filteredUsers = this.props.users
                         .filter(user => 
                             user.login.replaceAll('[^A-Za-z0-9]', '').toLowerCase().includes(this.props.searchInput.toLowerCase())
                         )
@@ -82,10 +84,34 @@ class UsersList extends React.Component {
                                 />
                             </Link>
                         ))
+                        :
+                        currentUsers
+                        .map(user => (
+                            <Link 
+                                key={user.id} 
+                                to={`/profilePage/${user.login}`} 
+                                style={{ textDecoration: 'none' }} 
+                            >
+                                <UserCard
+                                key={user.id}
+
+                                avatar={user.avatar_url}
+                                nickname={user.login}
+                                oneUser={user}
+                                />
+                            </Link>
+                        ))
                     }
                 </div>
                 <div className='showing' >
-                    <p className='showing-number' >Showing: {currentUsers.length}/{this.props.users.length} </p>
+                    {
+                        this.props.searchInput !== ''
+                        ?
+                        <p className='showing-number' >Showing: {filteredUsers.length}/{this.props.users.length} </p>
+                        :
+                        <p className='showing-number' >Showing: {currentUsers.length}/{this.props.users.length} </p>
+
+                    }
                     <div className='showing-buttons' >
                         {
                             this.state.currentPage === 1
