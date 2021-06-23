@@ -33,6 +33,15 @@ class NavBar extends React.Component {
         
     }
 
+    handleOnLogoClick = () => {
+        if (this.state.burger === closeBurger) {
+            this.setState({
+                burger: openBurger,
+                bugregMenuClass: 'closed-burger-nav',
+            })
+        }
+    }
+
     
     render () {
         return (
@@ -43,7 +52,7 @@ class NavBar extends React.Component {
                                 className="teamify-img" 
                                 src={this.props.teamifyLogo} 
                                 alt="Teamify-logo"
-                                onClick={this.changeHeaderColorToGreen}
+                                onClick={this.handleOnLogoClick}
                             />
                         </Link>
 
