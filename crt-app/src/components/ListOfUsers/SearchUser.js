@@ -44,7 +44,9 @@ class SearchUser extends React.Component {
                 <div  className='user-search'>
                     <h3>Meet your future team!</h3>
                     <form className='search-input-container'>
+                    <div className='cross-search' >
                         <input
+                        className='search-input'
                         autoComplete="off"
                         type='text'
                         placeholder='Search by Nickname'
@@ -53,7 +55,7 @@ class SearchUser extends React.Component {
                         value={this.state.inputValue}
                         onChange={this.handleOnInputChange}
                         /> 
-                        <div className='cross-search' >
+                        
                         {
                             this.state.inputValue !== ''
                             &&
@@ -61,14 +63,14 @@ class SearchUser extends React.Component {
                                 <img className='cross' src={cleanInput} alt='cross'/>   
                             </span>
                         }
-                        
-                            <label
+                            
+                        </div> 
+                        <label
                             className='serach-btn'
                             onClick={() => this.props.setInputValue(this.state.inputValue)}
                             htmlFor='search' 
-                            >Search</label>
-                        </div> 
-                        
+                            >Search
+                        </label>
                     </form>
                     <div className='user-searcher-container' >
                     {
