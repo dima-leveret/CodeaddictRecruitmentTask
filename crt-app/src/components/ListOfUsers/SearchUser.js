@@ -78,7 +78,7 @@ class SearchUser extends React.Component {
                         &&
                         this.props.users
                         .filter(user => 
-                            user.login.replaceAll('[^A-Za-z0-9]', '').toLowerCase().includes(this.state.inputValue.toLocaleLowerCase())
+                            user.login.replaceAll('[^A-Za-z0-9]', '').toLowerCase().includes(this.state.inputValue.toLowerCase())
                         )
                         .map(user => (
                             

@@ -46,7 +46,7 @@ class UsersList extends React.Component {
         const currentUsers = this.props.users.slice(firstUserIndex, lastUserIndex);
         const pages = Math.ceil(this.props.users.length / this.state.usersPerPage);
 
-        let filteredUsers = []
+        let filteredUsers = null
 
         for (let i = 1; i <= pages; i++) {
             this.state.pageNumber.push(i)
@@ -65,10 +65,11 @@ class UsersList extends React.Component {
                     {
                         this.props.searchInput !== ''
                         ?
-                        this.props.users
-                        .map(user => (
+                        filteredUsers = this.props.users
+                        .filter(user=> 
                             user.login === this.props.searchInput
-                            &&
+                        )
+                        .map(user => (
                             <Link 
                                 key={user.id} 
                                 to={`/profilePage/${user.login}`} 

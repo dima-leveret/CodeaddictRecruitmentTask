@@ -15,10 +15,11 @@ class Subscribe extends React.Component {
     }
 
     handleOnSubmitClick = () => {
-        console.log(this.state.inputValue);
         this.setState ({
             inputValue: ''
         })
+
+        console.log(this.state.inputValue);
     }
 
     render() {
@@ -28,6 +29,7 @@ class Subscribe extends React.Component {
                <p>Don’t wanna miss something? Subscribe right now and get special deals and monthly newsletter</p>
                <form className='subscribe-input-container'>
                     <input
+                    autoComplete="off"
                     value={this.state.inputValue}
                     type='email'
                     placeholder='Enter your email address'

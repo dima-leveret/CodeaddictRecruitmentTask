@@ -20,6 +20,7 @@ class LendingPageUp extends React.Component {
                     <p>Find a dirrect link to some of the best developers and designers out there!</p>
                     <form className='explore-input-container'>
                         <input
+                        autoComplete="off"
                         type='text'
                         placeholder='View user profiles and select your provider.'
                         id='explore'
