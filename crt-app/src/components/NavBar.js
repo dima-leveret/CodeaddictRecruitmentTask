@@ -46,7 +46,7 @@ class NavBar extends React.Component {
         return (
                 <header className={this.props.headerColor} >
                     <div className="header-container">
-                        <Link to='/' >
+                        <Link to='/CodeaddictRecruitmentTask' >
                             <img 
                                 className="teamify-img" 
                                 src={this.props.teamifyLogo} 

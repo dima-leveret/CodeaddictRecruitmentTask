@@ -16,7 +16,7 @@ function App() {
       <NavBar/>
   
       <Switch>
-        <Route exact path='/' >
+        <Route exact path='/CodeaddictRecruitmentTask' >
           <LandingPageMain/>
         </Route>
   
