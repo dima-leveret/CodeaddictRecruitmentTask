@@ -1,0 +1,38 @@
+{
+  "files": {
+    "main.css": "/static/css/main.cbc894aa.chunk.css",
+    "main.js": "/static/js/main.aef5f93f.chunk.js",
+    "main.js.map": "/static/js/main.aef5f93f.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.257dc493.js",
+    "runtime-main.js.map": "/static/js/runtime-main.257dc493.js.map",
+    "static/js/2.542f7ba0.chunk.js": "/static/js/2.542f7ba0.chunk.js",
+    "static/js/2.542f7ba0.chunk.js.map": "/static/js/2.542f7ba0.chunk.js.map",
+    "static/js/3.c5e24bf8.chunk.js": "/static/js/3.c5e24bf8.chunk.js",
+    "static/js/3.c5e24bf8.chunk.js.map": "/static/js/3.c5e24bf8.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.cbc894aa.chunk.css.map": "/static/css/main.cbc894aa.chunk.css.map",
+    "static/js/2.542f7ba0.chunk.js.LICENSE.txt": "/static/js/2.542f7ba0.chunk.js.LICENSE.txt",
+    "static/media/about-us-image.ec2dde68.png": "/static/media/about-us-image.ec2dde68.png",
+    "static/media/active-arrow.f441c91e.svg": "/static/media/active-arrow.f441c91e.svg",
+    "static/media/airbnb.7a06f09d.png": "/static/media/airbnb.7a06f09d.png",
+    "static/media/amazon.c8a1d8ca.png": "/static/media/amazon.c8a1d8ca.png",
+    "static/media/closeBurger.70f517ea.svg": "/static/media/closeBurger.70f517ea.svg",
+    "static/media/dark-circle.19789d93.svg": "/static/media/dark-circle.19789d93.svg",
+    "static/media/disabled-arrow.9eae8f3d.svg": "/static/media/disabled-arrow.9eae8f3d.svg",
+    "static/media/followers-icon.2666a284.svg": "/static/media/followers-icon.2666a284.svg",
+    "static/media/following-icon.80d66106.svg": "/static/media/following-icon.80d66106.svg",
+    "static/media/google.8b473dc1.png": "/static/media/google.8b473dc1.png",
+    "static/media/header-striped-circle.da990702.svg": "/static/media/header-striped-circle.da990702.svg",
+    "static/media/openBurger.b7fa771c.svg": "/static/media/openBurger.b7fa771c.svg",
+    "static/media/profile-avatar-placeholder.4623d106.png": "/static/media/profile-avatar-placeholder.4623d106.png",
+    "static/media/teamify-white.3ea6506c.svg": "/static/media/teamify-white.3ea6506c.svg",
+    "static/media/teamify.94b42751.svg": "/static/media/teamify.94b42751.svg",
+    "static/media/twitter.73efc100.svg": "/static/media/twitter.73efc100.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.257dc493.js",
+    "static/js/2.542f7ba0.chunk.js",
+    "static/css/main.cbc894aa.chunk.css",
+    "static/js/main.aef5f93f.chunk.js"
+  ]
+}
