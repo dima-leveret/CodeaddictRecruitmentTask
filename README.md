@@ -12,3 +12,8 @@ Each follower item contains the same information as users (freelancers).
 Clicking on the follower loads the Profile Page of the follower.
 
 Subscribe - if to type something in subscribe input and press submit, it will console.log the text from input.
+
+
+Every project is
+a journey. Let’s start
+ours (yours) together ;)
