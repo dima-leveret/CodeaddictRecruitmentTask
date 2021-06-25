@@ -19,7 +19,6 @@ class UsersList extends React.Component {
         usersPerPage: 12,
         pageNumber: [],
 
-        showedUsersNumber: 12,
     }
 
     componentDidMount(){
@@ -27,23 +26,15 @@ class UsersList extends React.Component {
     }
 
 
-    nextPage = (num) => {
+    nextPage = () => {
         this.setState({
             currentPage: this.state.currentPage + 1,
         })
-
-        if (this.state.currentPage >= 1) {
-            this.setState({
-                showedUsersNumber: this.state.showedUsersNumber + num,
-            })
-        }
-
     }
 
-    prevPage = (num) => {
+    prevPage = () => {
         this.setState({
             currentPage: this.state.currentPage - 1,
-            showedUsersNumber: this.state.showedUsersNumber - num,
         })
     }
 
@@ -55,13 +46,11 @@ class UsersList extends React.Component {
         const currentUsers = this.props.users.slice(firstUserIndex, lastUserIndex);
         const pages = Math.ceil(this.props.users.length / this.state.usersPerPage);
 
-        
+        let filteredUsers = null
 
         for (let i = 1; i <= pages; i++) {
             this.state.pageNumber.push(i)
         };
-
-        console.log(this.state.currentPage, currentUsers.length);
 
         // function to show appropriate users on the page
         // const paginate = pageNamber => {
@@ -70,15 +59,33 @@ class UsersList extends React.Component {
         //     })
         // };
 
-
         return(
             <div className='users' >
                 <div className='users-list' >
                     {
-                        currentUsers
-                        .filter(user => 
-                            user.login.replaceAll('[^A-Za-z0-9]', '').toLowerCase().includes(this.props.searchInput.toLowerCase())
+                        this.props.searchInput !== ''
+                        ?
+                        filteredUsers = this.props.users
+                        .filter(user=> 
+                            user.login === this.props.searchInput
                         )
+                        .map(user => (
+                            <Link 
+                                key={user.id} 
+                                to={`/profilePage/${user.login}`} 
+                                style={{ textDecoration: 'none' }} 
+                            >
+                                <UserCard
+                                key={user.id}
+
+                                avatar={user.avatar_url}
+                                nickname={user.login}
+                                oneUser={user}
+                                />
+                            </Link>
+                        ))
+                        :
+                        currentUsers
                         .map(user => (
                             <Link 
                                 key={user.id} 
@@ -97,7 +104,14 @@ class UsersList extends React.Component {
                     }
                 </div>
                 <div className='showing' >
-                    <p className='showing-number' >Showing: {currentUsers.length}/{this.props.users.length} </p>
+                    {
+                        this.props.searchInput !== ''
+                        ?
+                        <p className='showing-number' >Showing: {filteredUsers.length}/{this.props.users.length} </p>
+                        :
+                        <p className='showing-number' >Showing: {currentUsers.length}/{this.props.users.length} </p>
+
+                    }
                     <div className='showing-buttons' >
                         {
                             this.state.currentPage === 1
@@ -106,7 +120,7 @@ class UsersList extends React.Component {
                                 <img src={disabledArrow} alt='arrowLeft' />
                             </button>
                             :
-                            <button className='btn btn-active' onClick={() => this.prevPage(currentUsers.length)} >
+                            <button className='btn btn-active' onClick={() => this.prevPage()} >
                                 <img className='active-left-arrow' src={activeArrow} alt='arrowLeft' />
                             </button>
                         }
@@ -118,7 +132,7 @@ class UsersList extends React.Component {
                                 <img className='disabled-right-arrow' src={disabledArrow} alt='arrowRight' />  
                             </button>
                             :
-                            <button className='btn btn-active' onClick={() => this.nextPage(currentUsers.length)} >  
+                            <button className='btn btn-active' onClick={() => this.nextPage()} >  
                                 <img src={activeArrow} alt='arrowRight' />  
                             </button>
                         }
