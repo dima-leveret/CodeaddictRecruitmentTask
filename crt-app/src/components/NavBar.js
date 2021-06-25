@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 import '../style/NavBar.css';
 
-// import TeamifyLogo from '../img/teamify.svg';
 import openBurger from '../img/openBurger.svg';
 import closeBurger from '../img/closeBurger.svg';
 
