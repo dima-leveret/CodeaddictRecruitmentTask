@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/CodeaddictRecruitmentTask/static/css/main.cbc894aa.chunk.css",
-    "main.js": "/CodeaddictRecruitmentTask/static/js/main.aef5f93f.chunk.js",
-    "main.js.map": "/CodeaddictRecruitmentTask/static/js/main.aef5f93f.chunk.js.map",
+    "main.js": "/CodeaddictRecruitmentTask/static/js/main.bf95faff.chunk.js",
+    "main.js.map": "/CodeaddictRecruitmentTask/static/js/main.bf95faff.chunk.js.map",
     "runtime-main.js": "/CodeaddictRecruitmentTask/static/js/runtime-main.a1d9051a.js",
     "runtime-main.js.map": "/CodeaddictRecruitmentTask/static/js/runtime-main.a1d9051a.js.map",
     "static/js/2.542f7ba0.chunk.js": "/CodeaddictRecruitmentTask/static/js/2.542f7ba0.chunk.js",
@@ -33,6 +33,6 @@
     "static/js/runtime-main.a1d9051a.js",
     "static/js/2.542f7ba0.chunk.js",
     "static/css/main.cbc894aa.chunk.css",
-    "static/js/main.aef5f93f.chunk.js"
+    "static/js/main.bf95faff.chunk.js"
   ]
 }
